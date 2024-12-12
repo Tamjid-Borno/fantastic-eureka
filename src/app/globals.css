@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900&family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Ubuntu:wght@0,300;0,400;0,500;0,700&display=swap');
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -24,4 +27,1533 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* src/app/globals.css */
+
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* General Navbar Styles */
+nav {
+  backdrop-filter: blur(10px); /* Adds a blur effect to the background */
+  z-index: 100;
+  height: 15vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0); /* Transparent background */
+  display: flex;
+  justify-content: space-between; /* Ensures space between logo and links */
+  align-items: center;
+  padding: 0 20px;
+}
+
+@media (max-width: 350px) {
+  .nav-link-mobile-small {
+    padding: 4px 3px; /* Adjust padding for smaller button size */
+    font-size: 0.875rem; /* Adjust font size */
+  }
+}
+
+
+@media (max-width: 410px) {
+  /* Adjust headings and text */
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+  }
+
+  .get-in-touch-button {
+    font-size: 18px;
+    padding: 10px 25px;
+    border-radius: 25px;
+  }
+
+  /* Further adjust the hero image */
+  .hero-image {
+    width: 90%; /* Reduce width further */
+    margin: 0 auto; /* Center the image */
+  }
+
+
+
+
+
+  /* Adjust mobile navigation menu for very small devices */
+  .nav-links-mobile {
+
+    padding: 10px; /* Reduce padding */
+  }
+
+  /* Adjust section paddings for smaller screens */
+  .section {
+    padding: 10px 20px; /* Less padding on small screens */
+  }
+}
+
+
+nav .logo {
+  margin-left: 60px; /* Adjust this value to create space between the left edge and the logo */
+}
+
+nav .logo img {
+  border-radius: 50%; /* Makes the logo circular */
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+  gap: 60px; /* Adjust the gap between nav links */
+  transition: all 0.3s ease;
+}
+
+/* On mobile: Hide the menu initially */
+.nav-links.open {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+}
+
+/* Navigation link styling */
+.nav-link {
+  position: relative;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  font-size: 2rem;
+  margin: 0 15px;
+}
+
+/* Underline animation */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: #980243;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Mobile Number Link */
+.nav-link-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #a00693, #440b8c);
+  padding: 10px 20px;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: background 0.3s ease-in-out;
+  gap: 10px;
+  background-size: 200% 200%;
+  background-position: 0 50%;
+}
+
+.nav-link-mobile:hover {
+  background-position: 100% 50%;
+}
+
+/* Mobile Menu Icon */
+.menu-icon {
+  display: none;
+}
+
+
+
+
+/* Slide-down and slide-up animations */
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+}
+
+/* Apply the animation to hero content and image */
+.hero-slide-down {
+  animation: slideDown 1s ease forwards;
+}
+
+.hero-slide-up {
+  animation: slideUp 1s ease forwards;
+}
+
+
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 20px;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    position: absolute;
+    top: 80px;
+    left: 0;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-link {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .nav-link-mobile {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: 1.2rem;
+  }
+
+  nav .logo {
+    margin-left: 10px;
+}
+
+
+
+}
+
+
+
+@media (max-width: 1080px) {
+  /* Adjust font size and spacing for nav links */
+  .nav-link {
+    font-size: 1.2rem; /* Make the font size smaller */
+    margin: 0 10px; /* Reduce the space between links */
+  }
+
+  /* Adjust the gap between the nav links */
+  .nav-links {
+    gap: 5%; /* Reduce the gap between nav links */
+  }
+
+  /* Optional: Adjust the mobile number link size */
+  .nav-link-mobile {
+    font-size: 1rem; /* Slightly smaller font size for mobile number */
+    padding: 8px 16px; /* Adjust padding for a more compact look */
+  }
+}
+
+/* General navbar styles remain the same above this */
+@media (max-width: 1433px) {
+  /* Adjust font size and spacing for nav links */
+  .nav-link {
+    font-size: 1.2rem; /* Make the font size smaller */
+    margin: 0 10px; /* Reduce the space between links */
+  }
+
+  /* Adjust the gap between the nav links */
+  .nav-links {
+    gap: 7%; /* Reduce the gap between nav links */
+  }
+
+  /* Optional: Adjust the mobile number link size */
+  .nav-link-mobile {
+    font-size: 1rem; /* Slightly smaller font size for mobile number */
+    padding: 8px 16px; /* Adjust padding for a more compact look */
+  }
+}
+
+
+
+
+
+
+@media (max-width: 1030px) {
+  /* Adjust font size and spacing for nav links */
+  .nav-link {
+    font-size: 1rem; /* Make the font size smaller */
+    margin: 0 10px; /* Reduce the space between links */
+  }
+
+  /* Adjust the gap between the nav links */
+  .nav-links {
+    gap: 20px; /* Reduce the gap between nav links */
+  }
+
+  /* Optional: Adjust the mobile number link size */
+  .nav-link-mobile {
+    font-size: 1rem; /* Slightly smaller font size for mobile number */
+    padding: 8px 16px; /* Adjust padding for a more compact look */
+  }
+}
+
+@media (max-width: 950px) {
+  /* Adjust font size and spacing for nav links */
+  .nav-link {
+    font-size: 1rem; /* Make the font size smaller */
+    margin: 0 10px; /* Reduce the space between links */
+  }
+
+  /* Adjust the gap between the nav links */
+  .nav-links {
+    gap: 10px; /* Reduce the gap between nav links */
+  }
+
+  /* Optional: Adjust the mobile number link size */
+  .nav-link-mobile {
+    font-size: 0.8rem; /* Slightly smaller font size for mobile number */
+    padding: 8px 16px; /* Adjust padding for a more compact look */
+  }
+}
+
+@media (max-width: 950px) {
+  .hero-content { 
+    margin-left: -55px;
+  }
+}
+
+
+.menu-icon {
+  z-index: 1000; /* Ensure it's above other elements */
+  cursor: pointer; /* Show pointer on hover */
+}
+
+.backdrop-blur-custom {
+  backdrop-filter: blur(50px)!important; /* Apply the blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Ensure compatibility for Safari */
+  background-color: rgba(0, 0, 0, 0.945); /* Add a small amount of transparency */
+
+}
+
+
+
+
+/* Glassmorphic Effect for Hero Section */
+.hero-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100vh; /* Ensures the effect covers the entire viewport height */
+}
+
+.hero-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, #040427, #101061 1%, #040427 90%),
+              linear-gradient(to bottom, rgba(255, 255, 255, 0.199), rgba(255, 255, 255, 0.199));
+  backdrop-filter: blur(12px); /* Frosted-glass blur effect */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Subtle border */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Soft shadow */
+  pointer-events: none; /* Allows interaction with underlying elements */
+  z-index: -1; /* Ensure effect is behind content */
+}
+
+/* Add bottom blur */
+.hero-wrapper::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20%; /* Default height for larger screens */
+  background: linear-gradient(to bottom, rgba(13, 0, 109, 0) 0%, rgb(0, 0, 28) 100%);
+  backdrop-filter: blur(30px); /* Blur effect focused at the bottom */
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Media Query for Mobile Screens */
+@media (max-width: 768px) {
+  .hero-wrapper::after {
+    height: 5%; /* Set height to 5% for mobile screens */
+  }
+}
+
+.hero {
+  display: flex;
+  flex-direction: column; /* Default column layout for mobile */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; /* Center content vertically */
+  min-height: 100vh; /* Full screen height */
+  padding: 2rem;
+  background: radial-gradient(circle, #0d006d 1%, #00001c 90%); /* Unified background gradient */
+  width: 100%;
+  text-align: center;
+}
+
+
+@media (min-width: 768px) {
+
+
+  
+  .hero {
+    flex-direction: row; /* Row layout for larger screens */
+    text-align: left; /* Align text to the left on larger screens */
+    padding: 2rem 4rem; /* Adjust padding for larger screens */
+  }
+}
+
+.hero-content {
+  width: 100%; /* Full width on mobile */
+  text-align: center; /* Center text on mobile */
+  margin-bottom: 2rem; /* Space between text and image on mobile */
+  font-family: "SUSE", sans-serif;
+  position: relative;
+  left: 5%;
+
+
+  @media (min-width: 768px) {
+    width: 50%; /* Half width on larger screens */
+    text-align: left; /* Align text to the left on larger screens */
+    margin-bottom: 0; /* No margin on larger screens */
+    margin-right: 2rem; /* Space between content and image on larger screens */
+    top: 10%
+  }
+}
+
+.hero-image {
+  width: 100%; /* Full width on mobile */
+  
+  @media (min-width: 768px) {
+    width: 50%; /* Half width on larger screens */
+  }
+}
+
+  
+@media (max-width: 768px) {
+  .hero-image img {
+    max-width: 80%!important; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+}
+
+.hero-image img {
+  max-width: 100%; /* Make image responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* Text Sizes */
+.text-4xl {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+
+
+/* Button Styles */
+.btn-primary {
+  background-color: #4a4a4a; /* Customize button color */
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #666666; /* Customize hover color */
+}
+
+/* Gradient for headline */
+.gradient-text {
+  background: linear-gradient(to right, #5E87BA 20%, #FB05B6 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  font-size: 4rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+/* styles/globals.css */
+h1 {
+  font-family: 'MuseoModerno', sans-serif; /* Apply font-family to h1 */
+}
+
+
+/* Styling for the paragraph */
+p {
+  font-size: 6rem;
+}
+
+.gradient-glow {
+  position: relative;
+  background: linear-gradient(to right, #FFFFFF, #FFFFFF); /* White color */
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: white-glow 2s linear infinite;
+}
+
+@keyframes white-glow {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.596);
+  }
+  50% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.4);
+  }
+}
+
+
+@media (max-width: 768px) {
+  .gradient-text {
+    font-size: 2rem; /* Smaller size for mobile screens */
+    line-height: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-image img {
+    width: 120%!important; /* Reduce width on smaller screens */
+    margin: 0 auto; /* Center the image on smaller screens */
+  }
+}
+
+
+
+/* Hover Effect */
+.get-in-touch-button:hover {
+  background-image: linear-gradient(to right, #3a3aff, #f209d6); /* Gradient changes on hover */
+  box-shadow: 
+    0 0 30px 10px rgba(58, 58, 255, 0.9), /* Stronger glow on hover */
+    0 0 30px 15px rgba(242, 9, 214, 0.9); /* Stronger glow on hover */
+}
+
+/* Default styling for the button */
+.get-in-touch-button {
+  display: inline-block;
+
+  font-size: 36px;
+
+  text-align: center;
+  padding: 20px 60px;
+  color: #ffffff;
+  background-color: transparent;
+  border-radius: 50px;
+  position: relative;
+  text-decoration: none;
+  background: linear-gradient(to right, #f209d6, #3a3aff);
+  padding: 12px 50px;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  border: 4px solid transparent;
+  background-origin: border-box;
+  box-shadow: 0 0 20px 5px rgba(242, 9, 214, 0.7), 0 0 20px 10px rgba(58, 58, 255, 0.7);
+  transition: all 0.4s ease-in-out;
+  cursor: pointer;
+}
+
+/* Media query for screen width 1225px */
+@media only screen and (max-width: 1225px) {
+  .get-in-touch-button {
+      font-size: 25px; /* Smaller font size */
+      padding: 10px 30px; /* Reduce padding */
+  }
+}
+
+
+@media only screen and (max-width: 1086px) {
+  .gradient-text {
+      font-size: 2.5rem!important; /* Smaller font size for 980px screens */
+  }
+}
+
+@media only screen and (max-width: 1154px) {
+  .gradient-text {
+      font-size: 2.5rem!important; /* Smaller font size for 980px screens */
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .gradient-text {
+      font-size: 2.2rem!important; /* Smaller font size for 980px screens */
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  p.text-xl {
+      font-size: 1rem!important; /* Smaller font size for 980px screens */
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  .get-in-touch-button {
+      font-size: 20px; /* Smaller font size */
+      padding: 7px 18px; /* Reduce padding */
+  }
+}
+
+@media only screen and (max-width: 818px) {
+  .gradient-text {
+      font-size: 2rem!important; /* Smaller font size for 980px screens */
+  }
+}
+
+@media only screen and (max-width: 776px) {
+  .gradient-text {
+      font-size: 1.6rem!important; /* Smaller font size for 980px screens */
+  }
+}
+
+@media only screen and (max-width: 776px) {
+  p.text-xl {
+      font-size: 0.7rem!important; /* Smaller font size for 980px screens */
+  }
+}
+
+/* Keyframe Animation for Click Jump */
+@keyframes button-jump {
+  0% {
+    transform: scale(1); /* Initial state */
+  }
+  50% {
+    transform: scale(1.1); /* Scale up slightly */
+  }
+  100% {
+    transform: scale(1); /* Back to normal size */
+  }
+}
+
+/* Click animation */
+.get-in-touch-button:active {
+  animation: button-jump 0.5s ease-in-out; /* 0.2s jump animation */
+}
+
+/* Smaller size for mobile devices */
+@media (max-width: 768px) {
+  .get-in-touch-button {
+    font-size: 20px; /* Smaller font size for mobile */
+    padding: 12px 30px; /* Smaller padding */
+    border-radius: 30px; /* Adjusted rounded corners */
+  }
+
+  .get-in-touch-button:hover {
+    box-shadow: 
+      0 0 20px 8px rgba(58, 58, 255, 0.8), /* Slightly less intense glow */
+      0 0 20px 12px rgba(242, 9, 214, 0.8); /* Slightly less intense glow */
+  }
+}
+
+
+
+
+/* Floating animation */
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px); /* Adjust the value for more or less float */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Apply the floating animation to the image */
+.hero-image img {
+  animation: floating 3s ease-in-out infinite;
+}
+
+
+.mb-8 {
+  margin-bottom: 2rem;
+  padding-top: 10rem;
+}
+
+.section services {
+  height: 100%;
+}
+
+
+@media (max-width: 820px) {
+  .w-\[300px\] {
+    width: 200px;
+  }
+
+  .rotate-\[20deg\] {
+    --tw-rotate: 30deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .rotate-\[-20deg\] {
+    --tw-rotate: -30deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .dot {
+    left: 190px; /* Override the 'left' value for mobile screens */
+  }
+}
+
+@media (max-width: 657px) {
+  .w-\[300px\] {
+    width: 100px;
+  }
+
+  .rotate-\[20deg\] {
+    --tw-rotate: 50deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .rotate-\[-20deg\] {
+    --tw-rotate: -50deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .dot {
+    left: 90px!important; /* Override the 'left' value for mobile screens */
+  }
+}
+
+@media (max-width: 495px) {
+  .w-\[300px\] {
+    width: 100px;
+  }
+
+  .rotate-\[20deg\] {
+    --tw-rotate: 70deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+  .rotate-\[-20deg\] {
+    --tw-rotate: -70deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+
+
+}
+
+
+
+/* Apply the media queries here */
+
+@media (max-width: 1662px) {
+  .cube-image-1 {
+    size: 130px; /* 150px - 20px */
+  }
+  .cube-image-2 {
+    width: 160px; /* 180px - 20px */
+  }
+  .cube-image-3 {
+    width: 160px; /* 180px - 20px */
+  }
+  .cube-image-4 {
+    width: 110px; /* 130px - 20px */
+  }
+  .cube-image-5 {
+    width: 70px; /* 90px - 20px */
+  }
+  .cube-image-6 {
+    width: 180px; /* 200px - 20px */
+  }
+}
+
+
+
+@media (max-height: 772px) {
+
+  .dot-1 {
+    top: -10px !important; /* Adjust for mobile screens */
+  }
+  .dot-2 {
+    top: 50px !important; /* Adjust for mobile screens */
+  }
+  .dot-3 {
+    top: 110px !important; /* Adjust for mobile screens */
+  }
+  .dot-4 {
+    top: 170px !important; /* Adjust for mobile screens */
+  }
+  .dot-5 {
+    top: 230px !important; /* Adjust for mobile screens */
+  }
+  .dot-6 {
+    top: 290px !important; /* Adjust for mobile screens */
+  }
+
+  .rotate-\[20deg\] {
+    --tw-rotate: 10deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    
+  }
+
+  .rotate-\[-20deg\] {
+    --tw-rotate: -10deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+  .line-1 {
+    top: 30px !important; /* Adjust for mobile screens */
+  }
+  .line-2 {
+    top: 90px !important; /* Adjust for mobile screens */
+  }
+  .line-3 {
+    top: 150px !important; /* Adjust for mobile screens */
+  }
+  .line-4 {
+    top: 210px !important; /* Adjust for mobile screens */
+  }
+  .line-5 {
+    top: 270px !important; /* Adjust for mobile screens */
+  }
+  .text-2 {
+    top: 40px !important; /* Adjust for mobile screens */
+  }
+  .text-3 {
+    top: 100px !important; /* Adjust for mobile screens */
+  }
+  .text-4 {
+    top: 160px !important; /* Adjust for mobile screens */
+  }
+  .text-5 {
+    top: 220px !important; /* Adjust for mobile screens */
+  }
+  .text-6 {
+    top: 280px !important; /* Adjust for mobile screens */
+  }
+}
+@media (max-width: 820px) and (max-height: 772px) {
+  .rotate-\[20deg\] {
+    --tw-rotate: 15deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    
+  }
+
+  .rotate-\[-20deg\] {
+    --tw-rotate: -15deg;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+}
+
+@media (max-width: 657px) and (max-height: 772px) {
+  .rotate-\[20deg\] {
+    --tw-rotate: 35deg!important;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    
+  }
+
+  .rotate-\[-20deg\] {
+    --tw-rotate: -35deg!important;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+}
+
+@media (max-width: 495px) and (max-height: 772px) {
+
+  .dot-1,
+  .dot-3,
+  .dot-5 {
+    left: 15px !important; /* Adjust for mobile screens */
+  }
+
+  .line {
+    width: 40%!important;
+    left: 25px!important; /* Adjust for mobile screens */
+  }
+  .rotate-\[20deg\] {
+    --tw-rotate: 59deg!important;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+    
+  }
+
+  .rotate-\[-20deg\] {
+    --tw-rotate: -59deg!important;
+    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  }
+
+}
+
+
+
+.line {
+  width: 100%; /* Full width for larger screens */
+  height: 4px; /* Keep the height as required */
+  position: absolute;
+  background-size: 200% 100%;
+  background-image: linear-gradient(to right, #ff007f, #ff00ff, #00eaff, #ff007f);
+  box-shadow: 0 0 15px #ff007f, 0 0 30px #ff00ff, 0 0 45px #00eaff;
+}
+
+@media (max-width: 388px) and (max-height: 772px) {
+  .line {
+    width: 40%!important; /* Decrease width by 50px */
+    left: 25px !important; /* Adjust for mobile screens */
+  }
+ 
+  .dot-2,
+  .dot-4,
+  .dot-6 {
+    left: 50px !important; /* Adjust for mobile screens */
+  }
+  .player {
+    height: 20px!important;
+    width: 20px!important;
+
+  
+  }
+
+.text {
+  top: -10px !important; /* Adjust for mobile screens */
+}
+
+}
+
+
+@media (max-width: 350px) and (max-height: 772px) {
+
+  .w-\[20px\] {
+    width: 10px!important;
+   
+   }
+
+   .h-\[20px\] {
+    height: 10px!important;
+   }
+
+}
+
+
+
+.player {
+  height: 40px;
+  width: 40px;
+  margin: 0 10px!important;
+
+}
+
+ 
+
+
+canvas[data-generated="true"] {
+  width: 100%;           /* Full width */
+  height: 100vh!important;         /* Full screen height */
+  pointer-events: none;  /* Disable interactions */
+  position: absolute!important;    /* Keep it positioned on the full screen */
+  top: -250px!important;
+  left: 0!important;
+}
+
+
+
+
+
+.projects-wrapper {
+  position: relative;
+
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  padding: 50px; /* Padding inside the page */
+
+  background: linear-gradient(to bottom, #04072e, black, black 70%); /* Gradient from top to bottom */
+  overflow: hidden;
+}
+
+/* Headline styles */
+.headline-container {
+  margin-bottom: 1rem; /* Adjust this to control the space between the headline and Vortex content */
+}
+
+/* Headline text */
+.headline {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Gradient underline */
+.headline-underline {
+  width: 7rem; /* 2/3 width */
+  height: 4px;
+  background: linear-gradient(to right, #04ff04, #017e27); /* From pink to purple gradient */
+  border-radius: 4px;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+/* Vortex container */
+.vortex-container {
+  margin-top: 50px; /* Adjust margin to position the Vortex content below the headline */
+}
+
+/* Project content styles */
+.projects-content {
+  z-index: 2; /* Ensure content stays on top of the gradient and Vortex */
+  margin-top: 20px; /* Adjust spacing between projects content and headline */
+}
+
+.project-paragraph {
+  font-size: 1.75rem; /* Default paragraph font size */
+  color: white;
+  margin-top: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 100%; /* Full width for smaller screens */
+}
+
+/* Responsive styles */
+@media (min-width: 768px) {
+  .project-paragraph {
+    width: 60%; /* 60% width for medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-paragraph {
+    width: 50%; /* 50% width for larger screens */
+
+  }
+}
+
+@media (max-width: 1024px) {
+
+  .project-paragraph {
+    font-size: 1.25rem;
+  }
+
+}
+
+.headline2 {
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.headline-container {
+  margin-bottom: 3rem!important;
+}
+
+.expertise-container {
+  display: flex;
+  flex-direction: column; /* Ensures column layout */
+  gap: 20px; /* Space between glass boxes */
+  justify-content: center;
+  align-items: center; /* Center the content */
+  margin-top: 5rem; /* Space above the expertise section */
+
+}
+
+/* Glassmorphic Box Layout */
+.glass-boxes-container {
+  display: flex;
+  flex-direction: column; /* Arrange in column order */
+  gap: 1rem; /* Space between boxes */
+}
+
+/* Glassmorphic Box */
+.glass-box {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10; /* Ensure good stacking with vortex or other background elements */
+}
+
+.glass-box:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More prominent shadow on hover */
+}
+
+.glass-box-with-progress {
+  display: flex;
+  align-items: center;
+}
+
+.progress-bar {
+  width: 500px; /* Adjust the width of the progress bar */
+  height: 10px;
+  background: #f8f8f831; /* Background of the progress bar */
+  border-radius: 5px;
+  margin-left: 250px; /* Space between the box and progress bar */
+}
+
+.progress {
+  height: 100%;
+  background:  linear-gradient(to right, #013a12, #04a304, #6aec91); /* Color of the progress */
+  border-radius: 5px;
+  transition: width 1s ease-out;
+  width: 0;
+}
+
+.progress.animate {
+  width: var(--progress-width); /* Animate to the given width */
+}
+
+
+@media (max-width: 1024px) {
+
+  .glass-box {
+  width: 100px;
+  height: 100px;
+  }
+  .tech-icon {
+    font-size: 50px;
+  }
+
+  .progress-bar {
+    margin-left: 100px; /* Space between the box and progress bar */
+  }
+
+}
+
+@media (max-width: 768px) {
+
+  .glass-box {
+    width: 50px;
+    height: 50px;
+    }
+
+    .tech-icon {
+      font-size: 30px!important;
+    }
+
+    .progress-bar {
+      width: 200px; 
+    }
+
+}
+
+@media (max-width: 400px) {
+
+  .progress-bar {
+    width: 100px; 
+    margin-left: 50px; /* Space between the box and progress bar */
+  }
+
+}
+
+.tech-icon {
+  font-size: 50px;
+}
+
+/* Wrapper to hide overflow and create scrolling effect */
+.testimonials-wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Testimonial Row */
+.testimonials-row {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem; /* Space between each card */
+  animation: scrollTestimonials 15s linear infinite; /* Continuous scroll */
+}
+
+/* Testimonial Card */
+.testimonial-card {
+  flex: 0 0 33.33%; /* Show 3 cards on desktop */
+  height: 17rem; /* Fixed height */
+  background: linear-gradient(to bottom, #202e44cb, #0b101dde);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  color: #fff;
+}
+
+/* Testimonial Text */
+.testimonial-name {
+  font-size: 1rem;
+  color: #ffffff56;
+}
+
+.testimonial-feedback {
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+/* Keyframe animation for scrolling */
+@keyframes scrollTestimonials {
+  0% {
+    transform: translateX(0); /* Start position */
+  }
+  100% {
+    transform: translateX(-100%); /* Scroll to the end */
+  }
+}
+
+/* Responsive design for tablet and mobile screens */
+
+/* Tablet: Show 2 testimonials */
+@media (max-width: 768px) {
+  .testimonial-card {
+    flex: 0 0 50%; /* Show 2 cards on tablets */
+  }
+}
+
+/* Mobile: Show 1 testimonial */
+@media (max-width: 480px) {
+  .testimonial-card {
+    flex: 0 0 100%; /* Show 1 card on mobile */
+  }
+}
+
+.projects-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.project-image {
+  width: 100%;
+  max-width: 300px;
+}
+
+.responsive-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.contact-wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0b011400;
+}
+
+.contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  max-width: 1200px;
+  width: 90%;
+  height: 80vh; /* Adjust this for larger/smaller form */
+  background-color: #23153000;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.contact-left {
+  flex: 2; /* Give more space to the left side */
+  position: relative;
+  min-height: 100%;
+  clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%); /* Slanted to the right */
+}
+
+.contact-left img {
+  width: 100%;
+  height: 40%;
+  margin-top: 140px;
+  object-fit: cover;
+  margin-bottom: 50px
+}
+
+.contact-right {
+  flex: 1; /* Give less space to the right side */
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #23153000;
+  color: #fff;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 10% 100%); /* Slanted to the right */
+}
+
+.contact-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-underline {
+  width: 100px;
+  height: 8px;
+  background: linear-gradient(to right, #a1030e, #9201ed);
+  border-radius: 20px;
+  margin: 0 auto 30px auto;
+}
+
+.contact-form {
+  display: flex;             /* Enable flexbox */
+  flex-direction: column;    /* Stack children vertically */
+  align-items: center;      /* Center items horizontally */
+  justify-content: center;   /* Center items vertically */
+
+}
+
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  background-color: #383838;
+  color: #fff;
+  font-size: 16px;
+}
+
+.form-textarea {
+  resize: none;
+}
+
+.submit-button {
+  background: linear-gradient(90deg, #fe050e, #fb05ac);
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 10rem;
+  margin-top: 20px; /* Optional: Add some space above the button */
+}
+
+.submit-button:hover {
+  background: #ff4b2b;
+}
+
+.success-message {
+  color: #28a745;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.error-text {
+  color: #ff4b2b;
+  font-size: 1rem;
+}
+
+.social-media-box {
+  height: 25%; /* Adjust height as needed */
+  width: 70%; /* Adjust width as needed */
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  background-color: rgba(214, 212, 212, 0); /* Semi-transparent background */
+  color: #fff;
+  padding: 20px; /* Add padding for better spacing inside the box */
+  border-right: 2px solid #f5f4f469; /* Set right border with your desired color and width */
+  border-top: none; /* Remove top border */
+  border-left: none; /* Remove left border */
+  border-bottom: none; /* Remove bottom border */
+  border-radius: 10px 0 0 10px; /* Optional: Round corners only on left side */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Optional: Add shadow for depth */
+}
+
+
+.social-item {
+  display: flex; /* Use flexbox to align items */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 12.5px; /* Space between items */
+  margin-top: 12.5px;
+
+}
+
+.social-link {
+  font-size: 24px; /* Adjust size for icons and text */
+  color: #fff; /* Default text color */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s, transform 0.3s; /* Transition for color and scaling */
+  display: flex; /* Ensure icon and text are aligned */
+  align-items: center; /* Center align items */
+}
+
+.social-link:hover {
+  color: #ff2bff; /* Highlight color on hover */
+  transform: scale(1.05); /* Slightly scale up on hover for effect */
+}
+
+.social-link span {
+  font-size: 14px; /* Size of text next to icon */
+  margin-left: 5px; /* Space between icon and text */
+}
+
+.icon {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+
+/* For Mobile Devices (screen width 768px or less) */
+@media (max-width: 768px) {
+  /* Hide contact-left section and the social media box */
+  .contact-left, .social-media-box {
+    display: none;
+  }
+
+  /* Adjust the contact-right section to take full width */
+  .contact-right {
+    flex: none;
+    width: 100%;
+    padding: 20px;
+    clip-path: none; /* Remove the slanted design */
+  }
+
+  /* Contact form styling for mobile */
+  .contact-container {
+    width: 100%;
+    max-width: 100%; /* Take full width on mobile */
+    height: auto;    /* Adjust the height for content */
+    flex-direction: column; /* Stack the form vertically */
+  }
+
+  /* Adjust form title and padding */
+  .contact-title {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .form-group {
+    width: 60%;
+  }
+
+  /* Adjust form inputs to fit properly */
+  .form-input, .form-textarea {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .submit-button {
+    width: 10rem; /* Make the submit button full-width */
+    font-size: 16px;
+  }
+
+  /* Positioning social icons at the bottom */
+  .social-media-box {
+    display: flex;
+    flex-direction: row; /* Align icons horizontally */
+    justify-content: center; /* Center the icons */
+    position: absolute; /* Positioning it at the bottom */
+    bottom: 20px; /* Adjust this value to move it higher or lower */
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  /* Hide the text in the social media box */
+  .social-text {
+    display: none; /* Hide text */
+  }
+
+  .social-item {
+    margin: 0 10px; /* Space between icons */
+  }
+
+  /* Optional: Adjust icon size for mobile */
+  .icon {
+    font-size: 28px; /* Increase the size of the icons for better visibility */
+  }
+}
+
+
+@media (max-height: 738px) {
+
+  .social-item {
+    margin-bottom: 5.5px;
+    margin-top: 5.5px;
+
+}
+
+
+.contact-underline {
+  width: 100px;
+  height: 8px;
+  background: linear-gradient(to right, #a1030e, #9201ed);
+  border-radius: 20px;
+  margin: 0 auto 10px auto;
+}
+
+.contact-title {
+  font-size: 2rem;
+  margin-bottom: 0px;
+}
 }

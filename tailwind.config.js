@@ -7,11 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+    
+      fontFamily: {
+        suse: ['SUSE', 'sans-serif'], // Ensure 'SUSE' is listed here
       },
     },
   },
-  plugins: [],
+
 };
+
+
