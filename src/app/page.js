@@ -594,23 +594,7 @@ const ProjectsSection = () => {
             </div>
           </div>
 
-          {/* New "Past Projects" Section */}
-          <div className="headline-container text-center mt-12 mb-8">
-            <h2 className="headline">Projects</h2>
-            <div className="headline-underline"></div>
-          </div>
-
-          <div className="projects-gallery">
-            <div className="project-image">
-              <img src={projectImage1} alt="Project 1" className="responsive-image" />
-            </div>
-            <div className="project-image">
-              <img src={projectImage2} alt="Project 2" className="responsive-image" />
-            </div>
-            <div className="project-image">
-              <img src={projectImage3} alt="Project 3" className="responsive-image" />
-            </div>
-          </div>
+         
         </div>
       </Vortex>
     </section>
@@ -620,8 +604,8 @@ const ProjectsSection = () => {
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({
-    name: "",       // Sender's name
-    email: "",      // Sender's email
+    user_name: "",       // Sender's name
+    user_email: "",      // Sender's email
     subject: "",    // Subject of the message
     message: "",    // Message content
   });
@@ -643,7 +627,6 @@ const ContactSection = () => {
     return errors;
   };
 
-  // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     const validationErrors = validate();
@@ -674,11 +657,14 @@ const ContactSection = () => {
             setErrors({});
           },
           (error) => {
-            console.log("FAILED...", error);
+            console.error("FAILED...", error);
+            setSuccess("");  // Clear success message on failure
+            setErrors({ form: "There was an issue sending your message. Please try again later." });
           }
         );
     }
-  };
+};
+
 
   return (
     <section className="contact-wrapper">
